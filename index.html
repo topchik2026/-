@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Вгадай число</title>
+<style>
+body{
+    font-family: Arial;
+    text-align: center;
+    margin-top: 100px;
+}
+
+input{
+    padding: 10px;
+    font-size: 16px;
+}
+
+button{
+    padding: 10px 20px;
+    font-size: 16px;
+}
+</style>
+</head>
+<body>
+
+<h1>🎯 Вгадай число</h1>
+<p>Я загадав число від 1 до 100</p>
+
+<input type="number" id="guess">
+<button onclick="checkGuess()">Спробувати</button>
+
+<p id="result"></p>
+
+<script>
+
+let secret = Math.floor(Math.random()*100)+1;
+let attempts = 0;
+
+function checkGuess(){
+
+let guess = document.getElementById("guess").value;
+attempts++;
+
+if(guess == secret){
+    document.getElementById("result").innerText =
+    "🎉 Правильно! Спроб: " + attempts;
+}
+else if(guess > secret){
+    document.getElementById("result").innerText = "📉 Менше!";
+}
+else{
+    document.getElementById("result").innerText = "📈 Більше!";
+}
+
+}
+
+</script>
+
+</body>
+</html>
